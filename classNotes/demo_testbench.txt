@@ -1,0 +1,36 @@
+`timescale 1ns/1ns
+`include "demo.v"
+
+
+//testbench 
+module demo_tb;
+
+//registors for inputs
+reg A;
+
+//wires for outputs
+wire B;
+
+
+//created a unit under test
+demo1 uut(A, B);
+
+initial begin
+    
+    $dumpfile("demo_tb.vcd");
+    $dumpvars(0, demo_tb);
+
+    A=0;
+    #20;
+
+    A=1;
+    #20;
+
+    A=0;
+    #20;
+
+    $display("test done!!!");
+
+end
+
+endmodule
